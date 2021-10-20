@@ -12,5 +12,8 @@
   "devDependencies": {
     "@cloudflare/wrangler": "^1.19.4",
     "prisma": "^3.3.0"
+  },
+  "dependencies": {
+    "@prisma/client": "^3.3.0"
   }
 }
