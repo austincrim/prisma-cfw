@@ -1,19 +1,9 @@
-import { PrismaClient } from "@prisma/client"
-const prisma = new PrismaClient()
+import { PrismaClient } from '@prisma/client'
 
-addEventListener("fetch", (event) => {
-  event.respondWith(handleRequest(event.request))
-})
-
-async function handleRequest(request) {
-  await prisma.log.create({
-    data: {
-      level: "Info",
-      message: `${request.method} ${request.url}`,
-      meta: {
-        headers: JSON.stringify(request.headers)
-      }
-    }
-  })
-  return new Response(`request method: ${request.method}!`)
+export default {
+  async fetch(request) {
+    const prisma = new PrismaClient()
+    let result = await prisma.todo.findMany()
+    return new Response(JSON.stringify(result))
+  }
 }

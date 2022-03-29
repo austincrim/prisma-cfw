@@ -1,9 +1,6 @@
-name = "prisma-cfw"
-type = "webpack"
-route = ''
-zone_id = ''
-usage_model = ''
-compatibility_flags = []
-workers_dev = true
 compatibility_date = "2021-10-20"
-webpack_config = "webpack.config.js"
+compatibility_flags = []
+name = "prisma-cfw"
+route = ''
+usage_model = 'bundled'
+workers_dev = true

@@ -1,25 +1,16 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider        = "prisma-client-js"
-  previewFeatures = ["dataProxy", "mongoDb"]
+  previewFeatures = ["dataProxy"]
 }
 
 datasource db {
-  provider = "mongodb"
+  provider = "postgres"
   url      = env("DATABASE_URL")
+  // url      = env("MIGRATE_URL")
 }
 
-model Log {
-  id      String @id @default(dbgenerated()) @map("_id") @db.ObjectId
-  level   Level
-  message String
-  meta    Json
-}
-
-enum Level {
-  Info
-  Warn
-  Error
+model Todo {
+  id        Int     @id @default(autoincrement())
+  title     String
+  completed Boolean
 }
